@@ -16,18 +16,20 @@ import sys
 def lonelyinteger(a):
     # Write your code here
     
-    unique_list = []
+    unique_dictionary = {}
     
     for integer in a:
-        if integer in unique_list:
-            unique_list.remove(integer)
-        else:
-            unique_list.append(integer)
+        try:
+            if unique_dictionary[integer] == True:
+                unique_dictionary[integer] = False
+        except:
+            unique_dictionary[integer] = True
         
         # unique_list.pop(integer) if integer in unique_list else unique_list[integer] = 1
-        
-    
-    return unique_list[0]
+    for key, value in unique_dictionary.items():
+        if (value == True):
+            lonelyinteger = key
+    return (lonelyinteger)
         
 
 if __name__ == '__main__':
