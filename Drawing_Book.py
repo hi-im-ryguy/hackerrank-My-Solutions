@@ -17,7 +17,10 @@ import sys
 
 def pageCount(n, p):
     # Write your code here
-
+    if (n % 2 == 0):
+        return min(math.floor(p/2), math.ceil((n - p)/2))
+    else:
+        return min(math.floor(p/2), math.floor((n - p)/2))
         
 
 if __name__ == '__main__':
