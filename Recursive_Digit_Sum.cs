@@ -34,15 +34,17 @@ class Result
         
         string digitsString = n;
         
-        for (int i = 1; i < k; i++)
-        {
-            digitsString += n;
-        }
+        long digitsSum = 0;
         
-        Console.WriteLine(digitsString);
-        Console.WriteLine(digitsString[0]);
-        Console.WriteLine(digitsString.Remove(0, 1));
-        return superDigit((superDigit(digitsString[0].ToString(), 0) + superDigit(digitsString.Remove(0, 1), 0)).ToString(), 0);
+        foreach (char digit in digitsString)
+        {
+            digitsSum += (long)Char.GetNumericValue(digit);
+        }
+        digitsSum *= k;
+        k = 1;
+        
+        return superDigit(digitsSum.ToString(), k);
+        
     }
     
 }
